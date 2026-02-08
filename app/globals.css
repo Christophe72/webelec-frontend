@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+/* -- Mode clair (defaut) -- */
+:root {
+  --background: #f4f1ea;
+  --foreground: #0f172a;
+  --muted: #64748b;
+  --card: rgba(255, 255, 255, 0.8);
+  --card-border: rgba(226, 232, 240, 0.8);
+  --accent: #ff7a59;
+}
+
+/* -- Mode sombre -- */
+.dark {
+  --background: #0b0f14;
+  --foreground: #e6edf3;
+  --muted: #a7b0be;
+  --card: rgba(17, 24, 39, 0.8);
+  --card-border: rgba(51, 65, 85, 0.7);
+  --accent: #ff7a59;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-space-grotesk);
+  --font-display: var(--font-fraunces);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  transition: background 0.3s, color 0.3s;
+}
