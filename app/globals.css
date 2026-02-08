@@ -2,12 +2,16 @@
 
 /* -- Mode clair (defaut) -- */
 :root {
-  --background: #f4f1ea;
-  --foreground: #0f172a;
-  --muted: #64748b;
-  --card: rgba(255, 255, 255, 0.8);
-  --card-border: rgba(226, 232, 240, 0.8);
+  --background: #f7f3ed;
+  --foreground: #0c1222;
+  --muted: #5f6b7a;
+  --card: rgba(255, 255, 255, 0.86);
+  --card-border: rgba(218, 226, 236, 0.9);
   --accent: #ff7a59;
+  --accent-2: #3d6fff;
+  --surface: rgba(255, 255, 255, 0.65);
+  --surface-strong: rgba(255, 255, 255, 0.92);
+  --shadow: 0 30px 80px rgba(15, 23, 42, 0.16);
 }
 
 /* -- Mode sombre -- */
@@ -15,9 +19,13 @@
   --background: #0b0f14;
   --foreground: #e6edf3;
   --muted: #a7b0be;
-  --card: rgba(17, 24, 39, 0.8);
+  --card: rgba(17, 24, 39, 0.88);
   --card-border: rgba(51, 65, 85, 0.7);
   --accent: #ff7a59;
+  --accent-2: #6f8bff;
+  --surface: rgba(17, 24, 39, 0.6);
+  --surface-strong: rgba(17, 24, 39, 0.92);
+  --shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
 }
 
 @theme inline {
@@ -32,4 +40,29 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
   transition: background 0.3s, color 0.3s;
+}
+
+.glass-panel {
+  background: var(--surface);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.float-slow {
+  animation: floatSlow 10s ease-in-out infinite;
+}
+
+@keyframes floatSlow {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
 }

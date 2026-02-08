@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Space_Grotesk } from "next/font/google";
 import Image from "next/image";
+import Link from "next/link";
 import ThemeToggle from "./components/ThemeToggle";
 import "./globals.css";
 
@@ -15,8 +16,8 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "Studio Relay",
-  description: "A compact Next.js + Spring handshake demo.",
+  title: "WeBelec CRM",
+  description: "Interface client moderne connectee a l'API Spring.",
 };
 
 export default function RootLayout({
@@ -30,13 +31,29 @@ export default function RootLayout({
         className={`${spaceGrotesk.variable} ${fraunces.variable} antialiased`}
       >
         <nav className="fixed top-0 z-50 flex w-full items-center justify-between px-6 py-4 backdrop-blur-md">
-          <Image
-            src="/logo.png"
-            alt="Logo"
-            width={40}
-            height={40}
-            className="rounded-lg"
-          />
+          <div className="flex items-center gap-4">
+            <Link href="/" className="flex items-center gap-3">
+              <Image
+                src="/logo.png"
+                alt="Logo"
+                width={40}
+                height={40}
+                className="rounded-lg"
+              />
+              <span className="text-sm font-semibold tracking-wide text-[var(--foreground)]">
+                WeBelec
+              </span>
+            </Link>
+            <div className="hidden items-center gap-3 text-sm text-[var(--muted)] md:flex">
+              <Link href="/clients" className="hover:text-[var(--foreground)]">
+                Clients
+              </Link>
+              <span className="h-4 w-px bg-[var(--card-border)]" />
+              <Link href="/" className="hover:text-[var(--foreground)]">
+                Accueil
+              </Link>
+            </div>
+          </div>
           <ThemeToggle />
         </nav>
         {children}

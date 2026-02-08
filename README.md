@@ -2,6 +2,15 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+## Configuration
+
+This frontend can proxy API calls to the backend using the `BACKEND_BASE_URL` variable.
+Set it in `.env.local` (already created):
+
+```
+BACKEND_BASE_URL=http://localhost:8080
+```
+
 First, run the development server:
 
 ```bash
