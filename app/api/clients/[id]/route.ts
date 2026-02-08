@@ -52,6 +52,10 @@ export async function DELETE(
   const url = new URL(`/api/clients/${id}`, BACKEND_BASE_URL);
   const response = await fetch(url, { method: "DELETE" });
 
+  if (response.status === 204) {
+    return new NextResponse(null, { status: 204 });
+  }
+
   const body = await response.text();
   return new NextResponse(body, {
     status: response.status,
